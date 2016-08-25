@@ -3,14 +3,13 @@ import mywebportal.Employee;
 
 public class TestEmployee {
 	public static void main(String[] args){
-		Employee Harish = new Employee();
-		Harish.setName("Harish");
-		Harish.setEmpId(1625);
-		Harish.setRole("Engineer");
+		Employee harish = new Employee(null, null, null);
+		harish.setName("Harish");
+		harish.setEmpId(1625);
+		harish.setRole("Engineer");
 		
-		System.out.println(" Name: " + Harish.getName() 
-				+ "\n Employee Id: " + Harish.getEmpId()
-				+ "\n Role: " + Harish.getRole());
-		
+		System.out.println(" Name: " + harish.getEmpName() 
+				+ "\n Employee Id: " + harish.getEmpId()
+				+ "\n Role: " + harish.getEmpRole());
 	}	
 }

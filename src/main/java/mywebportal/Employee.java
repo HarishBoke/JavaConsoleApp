@@ -11,7 +11,7 @@ public class Employee {
 		this.role = role;
 	}
 	
-	/*public void setName(String name){
+	public void setName(String name){
 		this.name = name;
 	}
 	public void setEmpId(Integer empId){
@@ -20,8 +20,7 @@ public class Employee {
 	
 	public void setRole(String role){
 		this.role = role;
-	}
-	*/
+	}	
 	public String getEmpName(){
 		return this.name;
 	}

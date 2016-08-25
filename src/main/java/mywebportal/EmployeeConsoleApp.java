@@ -3,11 +3,12 @@ import mywebportal.Employee;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class SetEmployee {	
+public class EmployeeConsoleApp {	
 	public static void main(String[] args){
 		ArrayList<Employee> empList = new ArrayList<Employee>();		
-		SetEmployee.flashOptions(empList);		
+		EmployeeConsoleApp.flashOptions(empList);		
 	}
+	
 	public static void confirmAction(ArrayList<Employee> eList){
 		System.out.println("--------------------------- ");
 		System.out.println("Press 'Y' for menu and 'N' for exit");
@@ -18,10 +19,11 @@ public class SetEmployee {
 		
 		if(resAction.equalsIgnoreCase(Y)){
 			System.out.println(resAction);
-			SetEmployee.flashOptions(eList);
+			EmployeeConsoleApp.flashOptions(eList);
 		}else{
-			SetEmployee.exitApp();
+			EmployeeConsoleApp.exitApp();
 		}
+		confirmAction.close();
 	}
 	
 	public static void flashOptions(ArrayList<Employee> eList){
@@ -41,50 +43,50 @@ public class SetEmployee {
 	    	  userSelection = Integer.parseInt(userInput.nextLine());
 	     }catch(NumberFormatException nfe){
             System.err.println("Invalid Format!");
-            SetEmployee.flashOptions(eList);
+            EmployeeConsoleApp.flashOptions(eList);
 	     }
 	    //userInput.close();
 	    	switch(userSelection){
 		    	case 1:
-		    		SetEmployee.addEmp(eList);
+		    		EmployeeConsoleApp.addEmp(eList);
 		    		System.out.println("\n");
 		    		confirmAction(eList);
 		    	break;
 		    	case 2:
-		    		SetEmployee.showAllEmp(eList);
+		    		EmployeeConsoleApp.showAllEmp(eList);
 		    		System.out.println("\n");
 		    		confirmAction(eList);
 		    		break;
 		    	case 3:
 		    		System.out.println("\n");
-		    		SetEmployee.showEmpDetails(eList);
+		    		EmployeeConsoleApp.showEmpDetails(eList);
 		    		confirmAction(eList);
 		    		break;
 		    	case 4:
 		    		System.out.println("\n");
-		    		SetEmployee.deleteEmp(eList);
+		    		EmployeeConsoleApp.deleteEmp(eList);
 		    		confirmAction(eList);
 		    		break;
 		    	case 5:
 		    		System.out.println("\n");
-		    		SetEmployee.showEmpTotalCount(eList);
+		    		EmployeeConsoleApp.showEmpTotalCount(eList);
 		    		confirmAction(eList);
 		    		break;
 		    	case 6:
 		    		System.out.println("\n");
-		    		SetEmployee.searchEmpDetails(eList);
+		    		EmployeeConsoleApp.searchEmpDetails(eList);
 		    		confirmAction(eList);
 		    		break;
 		    	case 7:
 		    		System.out.println("\n");
-		    		SetEmployee.exitApp();
+		    		EmployeeConsoleApp.exitApp();
 		    		break;
 		    	default:
 		    		//end the app
 		    	break;
 	    	}
 
-	     
+	    	userInput.close();
 	}
 	
 	public static ArrayList<Employee> addEmp(ArrayList<Employee> myEmployeeList){
@@ -100,12 +102,12 @@ public class SetEmployee {
 	        }
 	        System.out.println("Designation: ");
 	        String designation = empInput.nextLine();
-	        //empInput.close();
-	         //new ArrayList<Employee>();
+	        
 	        	Employee newEmp = new Employee(uname, empId, designation);
 	        	myEmployeeList.add(newEmp);
-		        return myEmployeeList;
-	        	//return newEmp;
+	        	
+	        empInput.close();
+		    return myEmployeeList;
 	}
 	
 	public static void showAllEmp(ArrayList<Employee> empList){
@@ -150,6 +152,7 @@ public class SetEmployee {
 	        }catch(NumberFormatException nfe){
 	            System.err.println("Invalid Format!");
 	        }
+		 	getEmpId.close();
 	}
 	
 	public static ArrayList<Employee> deleteEmp(ArrayList<Employee> empList){
@@ -165,6 +168,7 @@ public class SetEmployee {
 				break;
 			}
 		}
+		getEmpId.close();
 		return empList;
 	}
 	
@@ -201,10 +205,11 @@ public class SetEmployee {
     	else{
     		System.err.println("Employee List is Empty!" );
     	}
-			
+		getEmpName.close();
 	}
 	
 	public static void exitApp(){
+		System.out.println("------------------------");
 		System.out.println("GoodBye!");
 		System.exit(0);
 	}
